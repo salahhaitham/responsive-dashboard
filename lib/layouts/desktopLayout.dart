@@ -4,8 +4,12 @@ import 'package:responsive_dashboard1/generated/assets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:responsive_dashboard1/models/DrawerItemModel.dart';
 
+import '../models/expensesItemModel.dart';
 import '../widgets/Active_and_InActive_DrawerItem.dart';
+import '../widgets/CustomDrawer.dart';
 import '../widgets/DrawerItem.dart';
+import '../widgets/allExpensesHeader.dart';
+import '../widgets/allExpensesList.dart';
 import '../widgets/itemInfoListTile.dart';
 
 class desctopLayout extends StatelessWidget {
@@ -13,89 +17,52 @@ class desctopLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(children: [Expanded(child: CustomDrawer())]);
-  }
-}
-
-class CustomDrawer extends StatelessWidget {
-  const CustomDrawer({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      child: CustomScrollView(
-        slivers: [
-          SliverToBoxAdapter(
-            child: itemInfoListTile(
-              title: "Lekan Okeowo",
-              subtitle: "demo@gmail.com",
-              image: Assets.imagesAvatar1,
-            ),
-          ),
-          SliverToBoxAdapter(child: SizedBox(height: 8)),
-          DrawerItemListView(),
-
-
-          SliverFillRemaining(
-            hasScrollBody: false,
-            child: Column(
-              children: [
-                Expanded(child: SizedBox()),
-                InActiveDrawerItem(
-                  title: "Setting system",
-                  image: Assets.imagesSettings,
-                ),
-                SizedBox(height: 20),
-                InActiveDrawerItem(
-                  title: "Logout account",
-                  image: Assets.imagesLogout,
-                ),
-                SizedBox(height: 48),
-              ],
-            ),
-          ),
-
-        ],
-      ),
+    return const Row(
+      children: [
+        Expanded(child: CustomDrawer()),
+        Expanded(flex: 2, child: allExpenses()),
+      ],
     );
   }
 }
 
-class DrawerItemListView extends StatefulWidget {
-  const DrawerItemListView({super.key});
+class allExpenses extends StatelessWidget {
+  const allExpenses({Key? key}) : super(key: key);
 
-  @override
-  State<DrawerItemListView> createState() => _DrawerItemListViewState();
-}
-
-class _DrawerItemListViewState extends State<DrawerItemListView> {
-  List<DrawerItemModel> items = [
-    DrawerItemModel(image: Assets.imagesDashboard, title: "DashBoard"),
-    DrawerItemModel(image: Assets.imagesMyTransctions, title: "Trasnsaction"),
-    DrawerItemModel(image: Assets.imagesStatistics, title: "Statics"),
-    DrawerItemModel(image: Assets.imagesWalletAccount, title: "Wallet Account"),
-    DrawerItemModel(image: Assets.imagesMyInvestments, title: "My Investments"),
-  ];
-  int activeItem = 0;
   @override
   Widget build(BuildContext context) {
-    return SliverList.builder(
-
-      itemCount: items.length,
-      itemBuilder: (context, index) => GestureDetector(
-        onTap: () {
-          activeItem = index;
-          setState(() {});
-        },
-        child: Padding(
-          padding: const EdgeInsets.only(top: 20),
-          child: DrawerItem(
-            drawerItemModel: items[index],
-            isActive: activeItem == index,
+    return Padding(
+      padding: const EdgeInsets.only(left: 32, right: 20),
+      child: Container(
+        decoration: ShapeDecoration(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadiusGeometry.circular(12),
           ),
+          color: Colors.white,
+        ),
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              child: allExpensesHeader(),
+            ),
+            SizedBox(height: 16),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: allExpensesList(),
+            ),
+          ],
         ),
       ),
     );
   }
 }
+
+
+
+
+
+
+
+
+
