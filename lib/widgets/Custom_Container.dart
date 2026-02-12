@@ -1,8 +1,8 @@
 
 import 'package:flutter/material.dart';
 
-class Custom_Container extends StatelessWidget {
-  const Custom_Container({
+class Custom_BackgroundContainer extends StatelessWidget {
+  const Custom_BackgroundContainer({
     super.key, required this.child,
   });
   final Widget child;
