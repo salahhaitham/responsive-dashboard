@@ -4,16 +4,18 @@ import 'package:responsive_dashboard1/widgets/Custom_Container.dart';
 
 import '../Utils/app_styles.dart';
 import '../layouts/desktopLayout.dart';
+import 'CardPageView.dart';
 import 'Dots Indicator.dart';
+import 'TransactionHistorySection.dart';
 
-class MyCardSection extends StatefulWidget {
-  const MyCardSection({super.key});
+class MyCardsAndTransctionHistorySection extends StatefulWidget {
+  const MyCardsAndTransctionHistorySection({super.key});
 
   @override
-  State<MyCardSection> createState() => _MyCardSectionState();
+  State<MyCardsAndTransctionHistorySection> createState() => _MyCardsAndTransctionHistorySectionState();
 }
 
-class _MyCardSectionState extends State<MyCardSection> {
+class _MyCardsAndTransctionHistorySectionState extends State<MyCardsAndTransctionHistorySection> {
   late PageController pageController;
   int currentpage = 0;
   @override
@@ -39,6 +41,13 @@ class _MyCardSectionState extends State<MyCardSection> {
             CardPageView(pageController: pageController),
             SizedBox(height: 16),
             DotsIndicator(currentpage: currentpage),
+
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              child: Divider(color: Color(0xffF1F1F1),thickness: 1,),
+            ),
+
+            TransactionHistorySection()
           ],
         ),
       ),
