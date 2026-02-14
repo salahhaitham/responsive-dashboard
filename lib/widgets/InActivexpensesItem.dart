@@ -26,20 +26,26 @@ class InActiveExpensesItem extends StatelessWidget {
             allExpensesItemHeader(image: expensesItemModel.image),
 
             SizedBox(height: 34),
-            Text(
+        FittedBox(
+          fit: BoxFit.scaleDown,
+          child:Text(
               expensesItemModel.text,
               style: AppStyles.styleSemiBold16(context),
-            ),
+            ),),
             SizedBox(height: 8),
-            Text(
+        FittedBox(
+          fit: BoxFit.scaleDown,
+          child:  Text(
               expensesItemModel.date,
               style: AppStyles.styleRegular14(context),
-            ),
+            ),),
             SizedBox(height: 16),
-            Text(
+        FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Text(
               expensesItemModel.price,
               style: AppStyles.styleSemiBold24(context),
-            ),
+            ),)
           ],
         ),
       ),

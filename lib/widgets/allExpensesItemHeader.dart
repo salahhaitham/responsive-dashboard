@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -15,17 +14,25 @@ class allExpensesItemHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Container(
-          decoration: ShapeDecoration(
-            color: backgroundColor,
-            shape: OvalBorder(),
-          ),
-          child: Center(
-            child: SvgPicture.asset(
-              image,
-              colorFilter: ColorFilter.mode(
-                imageColor ?? Color(0xff4EB7F2),
-                BlendMode.srcIn,
+        Flexible(
+          child: ConstrainedBox(
+            constraints: BoxConstraints(maxWidth: 60),
+            child: AspectRatio(
+              aspectRatio: 1,
+              child: Container(
+                decoration: ShapeDecoration(
+                  color: backgroundColor,
+                  shape: OvalBorder(),
+                ),
+                child: Center(
+                  child: SvgPicture.asset(
+                    image,
+                    colorFilter: ColorFilter.mode(
+                      imageColor ?? Color(0xff4EB7F2),
+                      BlendMode.srcIn,
+                    ),
+                  ),
+                ),
               ),
             ),
           ),
@@ -33,7 +40,10 @@ class allExpensesItemHeader extends StatelessWidget {
         Spacer(),
         Transform.rotate(
           angle: -1.567434 * 2,
-          child: Icon(Icons.arrow_back_ios_new_rounded,color: imageColor??Color(0xff4EB7F2),),
+          child: Icon(
+            Icons.arrow_back_ios_new_rounded,
+            color: imageColor ?? Color(0xff4EB7F2),
+          ),
         ),
       ],
     );

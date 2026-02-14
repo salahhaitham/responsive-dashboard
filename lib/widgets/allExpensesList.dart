@@ -32,6 +32,46 @@ class _allExpensesListState extends State<allExpensesList> {
   @override
   Widget build(BuildContext context) {
     return Row(
+      children: [
+        Expanded(
+          child: GestureDetector(
+            onTap: () {
+              updateIndex(0);
+            },
+            child: allExpensesItem(
+              isActive: activeIndex == 0,
+              expensesItemModel: items[0],
+            ),
+          ),
+        ),
+        SizedBox(width: 8),
+        Expanded(
+          child: GestureDetector(
+            onTap: () {
+              updateIndex(1);
+            },
+            child: allExpensesItem(
+              isActive: activeIndex == 1,
+              expensesItemModel: items[1],
+            ),
+          ),
+        ),
+        SizedBox(width: 8),
+        Expanded(
+          child: GestureDetector(
+            onTap: () {
+              updateIndex(2);
+            },
+            child: allExpensesItem(
+              isActive: activeIndex == 2,
+              expensesItemModel: items[2],
+            ),
+          ),
+        ),
+      ],
+    );
+
+    Row(
       children: items.asMap().entries.map((e) {
         final index = e.key;
         final model = e.value;

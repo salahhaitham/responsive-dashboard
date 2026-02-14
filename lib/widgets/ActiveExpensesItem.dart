@@ -30,20 +30,27 @@ class ActiveExpensesItem extends StatelessWidget {
             ),
 
             SizedBox(height: 34),
-            Text(
-              expensesItemModel.text,
-              style: AppStyles.styleSemiBold16(context).copyWith(color: Colors.white),
+            FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Text(
+                expensesItemModel.text,
+                style: AppStyles.styleSemiBold16(context).copyWith(color: Colors.white),
+              ),
             ),
             SizedBox(height: 8),
-            Text(
+        FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Text(
               expensesItemModel.date,
               style: AppStyles.styleRegular14(context).copyWith(color: Colors.white),
-            ),
+            ),),
             SizedBox(height: 16),
-            Text(
+        FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Text(
               expensesItemModel.price,
               style: AppStyles.styleSemiBold24(context).copyWith(color: Colors.white),
-            ),
+            ),)
           ],
         ),
       ),
