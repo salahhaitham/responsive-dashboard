@@ -28,8 +28,11 @@ class LatestTransactionListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-        children: items.map((e)=>IntrinsicWidth(child: itemInfoListTile(userInfoModel: e))).toList()
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+          children: items.map((e)=>IntrinsicWidth(child: itemInfoListTile(userInfoModel: e))).toList()
+      ),
     );
 
   }

@@ -6,8 +6,8 @@ import 'package:flutter_svg/svg.dart';
 import '../Utils/app_styles.dart';
 import '../generated/assets.dart';
 
-class MyCardView extends StatelessWidget {
-  const MyCardView({super.key});
+class MyCard extends StatelessWidget {
+  const MyCard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class MyCardView extends StatelessWidget {
             ),
             const Expanded(child: SizedBox()),
             Padding(
-              padding: const EdgeInsets.only(right:24),
+              padding: const EdgeInsets.only(right: 48 - 24),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
@@ -60,7 +60,7 @@ class MyCardView extends StatelessWidget {
             ),
             const Flexible(
               child: SizedBox(
-                height: 26,
+                height: 54 - 28,
               ),
             ),
           ],
